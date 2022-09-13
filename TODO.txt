@@ -1,0 +1,12 @@
+- make sites pretty - -100%
+- database - 0%
+- ability for admins to add user, "mute" user, remove question, ban user - 0%
+- sorting and finding questions on main page - 0%
+
+OPTIONAL:
+- ability to rate questions
+
+
+:thinking:
+- maybe we can make a winner and give him money we havent spent for server
+- rankings 

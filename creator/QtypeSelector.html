@@ -1,0 +1,21 @@
+<label for="selectionQ">Vyberte typ otázky: </label>
+
+<select name="selectionQ" id="nextQ">
+  <option value="textQ">text</option>
+  <option value="photo">fotografie (do 20kb)</option>
+  <option value="video">video (odkaz)</option>
+  <option value="section">název sekce (ignorovaná odpověď)</option>
+</select>
+
+<label for="selectionA">Vyberte typ odpovědi: </label>
+
+<select name="selectionA" id="nextA">
+  <option value="radio">výběr z možností</option>
+  <option value="text">text</option>
+  <option value="yesno">ano/ne</option>
+</select>
+
+<input type="button" onclick="addRow()" value="Přidej!"/>
+<div>
+  <input type="submit">
+</div>
