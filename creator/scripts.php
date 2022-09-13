@@ -38,6 +38,7 @@
         break;
     }
     var thead = change.querySelector(Aposition);
+    var $elementPath = "";
     switch(valueQ){
       case "textQ":
         thead.innerHTML = '<?
@@ -45,6 +46,7 @@
             $page = str_replace(["\n"],"",$page);
             echo $page;
           ?>';
+        $elementPath = "td input.Input"
         break;
       case "photo":
         thead.innerHTML = '<?
@@ -52,28 +54,27 @@
             $page = str_replace(["\n"],"",$page);
             echo $page;
           ?>';
+        $elementPath = "td input"
         break;
       case "video":
         thead.innerHTML = '<?
             $page = file_get_contents("menues/questions/video.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
+            
           ?>';
+        $elementPath = "td input#myURL"
         break;
       case "section":
         change.innerHTML = '<?
             $page = file_get_contents("menues/questions/section.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
+
           ?>';
+        $elementPath = "td input.Input"
         break;
       }
-    if (valueQ != "section"){
-      $elementPath = "#thead td input.Input";
-    }
-    else{
-      $elementPath = "tr td input.Input";
-    }
     change.querySelector($elementPath).setAttribute("name",valueQ + z);
     z++;
   }

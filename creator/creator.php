@@ -11,6 +11,9 @@
 
 <body>
   <form action="saver.php" method="get" id="form" name="form">
+    <div>
+      <input type="submit">
+    </div>
     <div id="next">
     </div>
   </form>
