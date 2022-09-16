@@ -2,14 +2,15 @@
   var z = 0
   function addRow(){
     var change = document.getElementById('next')
+    var next = change.cloneNode(true);
     var selectionQ = document.getElementById('nextQ');
     var selectionA = document.getElementById('nextA');
     var valueQ = selectionQ.options[selectionQ.selectedIndex].value;
     var valueA = selectionA.options[selectionA.selectedIndex].value;
     Qeditor(change, valueA, 'tr#thead', valueQ);
     change.className = 'question';
-    change.id = '';
-    document.getElementById('form').innerHTML += '<div id="next">\n</div>';
+    change.id = z;
+    document.getElementById('form').appendChild(next);
   }
   function Qeditor(change, valueA, Aposition, valueQ){
     switch(valueA){
@@ -27,6 +28,8 @@
             $page = str_replace(["\n"],"",$page);
             echo $page;
           ?>';
+        change.querySelector("input#answer.Answer").setAttribute("name",'Answer' + y);
+        y++;
         break;
       case "yesno":
         change.innerHTML = '<?

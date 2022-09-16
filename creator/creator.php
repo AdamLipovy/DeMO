@@ -12,6 +12,7 @@
 <body>
   <form action="saver.php" method="get" id="form" name="form">
     <div>
+      <input name="Qnumber" id="answer" type="number" min="1"max="50" value="1">
       <input type="submit">
     </div>
     <div id="next">
