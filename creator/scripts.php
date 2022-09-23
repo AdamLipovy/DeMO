@@ -15,7 +15,7 @@
   function Qeditor(change, valueA, Aposition, valueQ){
     switch(valueA){
       case "radio":
-        change.innerHTML = '<?
+        change.innerHTML = '<?php
             $page = file_get_contents("menues/answers/radio.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
@@ -25,7 +25,7 @@
         change.querySelector('td#repeat input').click();
         break;
       case "text":
-        change.innerHTML = '<?
+        change.innerHTML = '<?php
             $page = file_get_contents("menues/answers/text.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
@@ -34,7 +34,7 @@
         y++;
         break;
       case "selection":
-        change.innerHTML = '<?
+        change.innerHTML = '<?php
             $page = file_get_contents("menues/answers/selection.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
@@ -48,7 +48,7 @@
     var $elementPath = "";
     switch(valueQ){
       case "textQ":
-        thead.innerHTML = '<?
+        thead.innerHTML = '<?php
             $page = file_get_contents("menues/questions/text.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
@@ -56,7 +56,7 @@
         $elementPath = "td input.Input"
         break;
       case "photo":
-        thead.innerHTML = '<?
+        thead.innerHTML = '<?php
             $page = file_get_contents("menues/questions/photo.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
@@ -64,7 +64,7 @@
         $elementPath = "td input"
         break;
       case "video":
-        thead.innerHTML = '<?
+        thead.innerHTML = '<?php
             $page = file_get_contents("menues/questions/video.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;
@@ -73,7 +73,7 @@
         $elementPath = "td input#myURL"
         break;
       case "section":
-        change.innerHTML = '<?
+        change.innerHTML = '<?php
             $page = file_get_contents("menues/questions/section.html");  
             $page = str_replace(["\n"],"",$page);
             echo $page;

@@ -47,7 +47,7 @@
         <th style="width:20%;">předmět</th>
         <th style="width:20%;">třída</th>
       </tr>
-      <?
+      <?php
         $storage = 'Storage';
         $classes = array_diff(scandir($storage), array('..', '.'));
         foreach($classes as $class){
@@ -62,13 +62,13 @@
               $files = array_diff(scandir($files), array('..', '.'));
               foreach ($files as $file){
               ?>
-              <tr onclick="send(this,'<?=str_replace('.json','',$file)?>', '<?=$name?>', '<?=$subject?>', '<?=$class?>')">
-                <td><?=str_replace('.json','',$file)?></td>
-                <td><?=$name?></td>
-                <td><?=$subject?></td>
-                <td><?=$class?></td>
+              <tr onclick="send(this,'<?php=str_replace('.json','',$file)?>', '<?php=$name?>', '<?php=$subject?>', '<?php=$class?>')">
+                <td><?php=str_replace('.json','',$file)?></td>
+                <td><?php=$name?></td>
+                <td><?php=$subject?></td>
+                <td><?php=$class?></td>
               </tr>
-              <?
+              <?php
               }
             }
           }

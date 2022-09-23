@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="creator.css" media="screen">
   <title>Creator</title>
-  <?require("scripts.php");?>
+  <?phprequire("scripts.php");?>
 </head>
 
 <body>
@@ -19,11 +19,11 @@
     <div id="next">
     </div>
   </form>
-<?
+<?php
   require("QtypeSelector.html");
 ?>
 <div id="overlay">
-  <div id="QEditor"><?
+  <div id="QEditor"><?php
   require("questionEditor.html");
 ?></div>
 </div>
