@@ -1,4 +1,4 @@
-- make sites pretty - -100%
+- make sites pretty - -50%
 - database - 0%
 - ability for admins to add user, "mute" user, remove question, ban user - 0%
 - sorting and finding questions on main page - 0%
@@ -10,3 +10,5 @@ OPTIONAL:
 :thinking:
 - maybe we can make a winner and give him money we havent spent for server
 - rankings 
+
+to move from page zo page call function with path to 

@@ -1,6 +1,8 @@
 
 <td align="right" valign="top">Vyber fotku (max: 1mb):</td>
-  <td><input type="file" name="image" onclick=""></td>
+  <td><input id="image" name="image" type="url"
+           required pattern="https://www.youtube.com/watch..*"
+           title="URL musí být na YouTube" required class="Input"></td>
   <td>  <div class="dropdown">
     <button class="dropbtn"><img src="dots.png"></button>
     <div class="dropdown-content">

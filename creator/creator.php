@@ -10,8 +10,9 @@
 </head>
 
 <body>
-  <form action="saver.php" method="get" id="form" name="form">
+  <form action="saver.php" method="post" id="form" name="form" enctype="multipart/form-data">
     <div>
+      <label for="Qnumber">číslo odpovědi:</label>
       <input name="Qnumber" id="answer" type="number" min="1"max="50" value="1">
       <input type="submit">
     </div>
