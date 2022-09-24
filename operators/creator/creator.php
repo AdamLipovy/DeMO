@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="creator.css" media="screen">
   <title>Creator</title>
-  <?phprequire("scripts.php");?>
+  <?php require("scripts.php");?>
 </head>
 
 <body>

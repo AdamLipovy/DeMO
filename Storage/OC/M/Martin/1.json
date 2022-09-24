@@ -1,0 +1,35 @@
+[
+    {
+        "selection": {
+            "header": [
+                "234",
+                "345",
+                "546"
+            ],
+            "rows": {
+                "Answer0": {
+                    "value": "657",
+                    "data": [
+                        "0",
+                        "1",
+                        "0"
+                    ]
+                }
+            }
+        },
+        "type": "text",
+        "Qvalue": "123"
+    },
+    {
+        "radio": [
+            {
+                "Answer9": {
+                    "value": "345",
+                    "triggered": true
+                }
+            }
+        ],
+        "type": "text",
+        "Qvalue": "123"
+    }
+]

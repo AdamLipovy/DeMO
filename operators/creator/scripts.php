@@ -30,7 +30,7 @@
             $page = str_replace(["\n"],"",$page);
             echo $page;
           ?>';
-        change.querySelector("input#answer.Answer").setAttribute("name",'Answer' + y);
+        change.querySelector("input#answer.Answer").name += y;
         y++;
         break;
       case "selection":
@@ -45,6 +45,7 @@
         break;
     }
     var thead = change.querySelector(Aposition);
+    change.querySelector("tr#typer input").name += z;
     var $elementPath = "";
     switch(valueQ){
       case "textQ":
@@ -97,7 +98,7 @@
         var answers = clone.querySelectorAll('input#answer.Answer');
         console.log(answers.length)
         for (var $i = 0; $i < answers.length; $i++){
-          answers[$i].setAttribute("name",'Answer' + y);
+          answers[$i].name += y;
           y++;
         }
         var hiddens = clone.querySelectorAll('input.hiddenInput');
@@ -116,7 +117,7 @@
         const clone = elements[i].cloneNode(true);
         const answer = clone.querySelectorAll('input#answer.Answer')[0];
         clone.classList.remove("repeatable");
-        answer.setAttribute("name",'Answer' + y);
+        answer.name += y;
         y++;
         tbody.appendChild(clone);
       }
@@ -158,7 +159,7 @@
     j = 0 
     $rows = element.parentElement.parentElement.parentElement.querySelectorAll('tr#selection');
     console.log($rows);
-    $rows.forEach(function(item){if(item==$rows[0]){item.innerHTML += '<td><input name="selection" type="hidden" value="0" class="hiddenInput"><input name="selection" value="1" type="checkbox" class="Input" id="answer">'; y++;}else{item.innerHTML += '<td><input name="selection' + y + '" type="hidden" value="0" class="hiddenInput"><input name="selection' + y + '" value="1" type="checkbox" class="Input" id="answer"></td>'; y++;}});
+    $rows.forEach(function(item){if(item==$rows[0]){item.innerHTML += '<td><input name="selection" type="hidden" value="0" class="hiddenInput"><input name="selection" value="1" type="checkbox" class="Input" id="answer">'; y++;}else{item.innerHTML += '<td><input name="Input' + y + '" type="hidden" value="0" class="hiddenInput"><input name="Input' + y + '" value="1" type="checkbox" class="Input" id="answer"></td>'; y++;}});
     $labels = element.parentElement.parentElement.querySelectorAll('input#answer.label');
     $labels.forEach(function(item){j++;});
     if (j<5){

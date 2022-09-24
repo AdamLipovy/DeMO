@@ -12,13 +12,13 @@
       var button = document.getElementById("selector");
       console.log($number);
       var form = document.querySelector("form.hiddenSender");
-      form.innerHTML = "<input type='text' name='"+$number+" value='"+$name+"."+$subject+"."+$class+"'>";
+      form.innerHTML = "<input type='hidden' name='number' value='"+$number+"'><input type='hidden' name='name' value='"+$name+"'><input type='hidden' name='subject' value='"+$subject+"'><input type='hidden' name='class' value='"+$class+"'>";
       form.submit()
     }
     function view(el){
       var form = document.querySelector("form.hiddenSender");
-      if(el.innerHTML == "zapnuto testování"){el.innerHTML = "zapnuto zobrazování"; form.action = "reader/reader.php"}
-      else{el.innerHTML = "zapnuto testování"; form.action = "tester/tester.php"}
+      if(el.innerHTML == "zapnuto testování"){el.innerHTML = "zapnuto zobrazování"; form.action = "operators/reader/reader.php"}
+      else{el.innerHTML = "zapnuto testování"; form.action = "operators/tester/tester.php"}
       
     }
   </script>
@@ -28,11 +28,11 @@
   <div id="fullImg"></div>
   <div id="all">
     <div id="header">
-      <a href="creator/creator.php"><button>click</button></a>
+      <a href="operators/creator/creator.php"><button>click</button></a>
     </div>
     <button id="selector" onclick="view(this)">zapnuto testování</button>
   </div>
-  <form class="hiddenSender" style="opacity:0" action="tester/tester.php"></form>
+  <form class="hiddenSender" style="opacity:0" action="operators/tester/tester.php" method="post"></form>
   <table id="myTable">
     <thead>
       <td><input type="text" id="myInput" onkeyup="sort(this, 'number')" placeholder="Search for names.."></td>
@@ -47,7 +47,7 @@
         <th style="width:20%;">předmět</th>
         <th style="width:20%;">třída</th>
       </tr>
-      <?php
+      <?
         $storage = 'Storage';
         $classes = array_diff(scandir($storage), array('..', '.'));
         foreach($classes as $class){
@@ -62,13 +62,13 @@
               $files = array_diff(scandir($files), array('..', '.'));
               foreach ($files as $file){
               ?>
-              <tr onclick="send(this,'<?php=str_replace('.json','',$file)?>', '<?php=$name?>', '<?php=$subject?>', '<?php=$class?>')">
-                <td><?php=str_replace('.json','',$file)?></td>
-                <td><?php=$name?></td>
-                <td><?php=$subject?></td>
-                <td><?php=$class?></td>
+              <tr onclick="send(this,'<?=str_replace('.json','',$file)?>', '<?=$name?>', '<?=$subject?>', '<?=$class?>')">
+                <td><?=str_replace('.json','',$file)?></td>
+                <td><?=$name?></td>
+                <td><?=$subject?></td>
+                <td><?=$class?></td>
               </tr>
-              <?php
+              <?
               }
             }
           }
