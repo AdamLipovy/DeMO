@@ -31,8 +31,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css" media="screen">
+    <title>Teacher Signup</title>
+    <link rel="stylesheet" href="login.css" media="screen">
   </head>
   <body>
  
@@ -40,26 +40,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
         <tr>
           <td colspan="2" align="left" valign="top"><h3>Vytváření účtu</h3></td>
-          <td><a href="teacherSignup.php">Vytváření účtu pro učitele</td>
+          <td colspan="2"><a href="signup.php">Vytváření účtu pro žáky</td>
         </tr>
         <tr>
-          <td align="right" valign="top">Uživateské jméno: </td>
-          <td><input id="text" name="user_name" type="text" class="Input"></td>
+          <td align="right" valign="top" class="tooltip"><span class="tooltiptext">jméno které bude vyžadováno pro přihlášení</span>Uživateské jméno: </td>
+          <td colspan="2"><input id="text" name="user_name" type="text" class="Input"></td>
         </tr>
         <tr>
           <td align="right" valign="top">Jméno uživatele: </td>
-          <td><input id="text" name="user_name" type="text" class="Input"></td>
+          <td colspan="2"><input colspan="2" id="text" name="user_name" type="text" class="Input"></td>
         </tr>
         <tr>
           <td align="right">Heslo: </td>
-          <td><input id="text" name="password" type="password" class="Input"></td>
+          <td colspan="2"><input id="text" name="password" type="password" class="Input"></td>
         </tr>
         <tr>
           <td align="right">Potvrzení hesla: </td>
-          <td><input id="text" name="password2" type="password" class="Input"></td>
+          <td colspan="2"><input id="text" name="password2" type="password" class="Input"></td>
         </tr>
         <tr>
-          <td>Vyučované předměty: </td>
+          <td class="tooltip"><span class="tooltiptext">zkratky předmětů rozdělte mezerou</span>Vyučované předměty: </td>
           <td><input id="text" name="Subjects" type="password" class="Input"></td>
         </tr>
         <tr>

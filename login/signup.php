@@ -31,19 +31,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css" media="screen">
+    <title>Signup</title>
+    <link rel="stylesheet" href="login.css" media="screen">
   </head>
   <body>
  
 <form action="" method="post" name="Login_Form">
-  <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
+  <table border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
     <tr>
       <td colspan="2" align="left" valign="top"><h3>Vytváření účtu</h3></td>
-      <td><a href="teacherSignup.php">Vytváření účtu pro učitele</td>
+      <td class="button"><a href="teacherSignup.php">Vytváření účtu pro učitele</td>
     </tr>
     <tr>
-      <td align="right" valign="top">Uživateské jméno: </td>
+      <td align="right" valign="top" class="tooltip"><span class="tooltiptext">jméno které bude vyžadováno pro přihlášení</span>Uživateské jméno: </td>
       <td><input id="text" name="user_name" type="text" class="Input"></td>
     </tr>
     <tr>
@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <tr>
       <td></td>
       <td><input name="Submit" type="submit" value="Odeslat" class="Button3"></td>
-      <td><a href="login.php">Přihlášení</td>
+      <td class="button"><a href="login.php">Přihlášení</td>
     </tr>
   </table>
 </form>
