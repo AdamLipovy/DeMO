@@ -7,9 +7,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   if($_POST['password'] == $_POST['password2']){
     $user_name = $_POST['user_name'];
     $name = $_POST['name'];
+    $class = $_POST['class'];
     $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
     if(!empty($user_name) && !empty($password)){
-      $query = "insert into users (user_name, name, password) values('$user_name', '$name', '$password')";
+      $query = "insert into users (user_name, name, class, password) values('$user_name', '$name', '$class' ,'$password')";
       mysqli_query($con, $query);
 
       header("Location: login.php");
@@ -44,19 +45,29 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     </tr>
     <tr>
       <td align="right" valign="top" class="tooltip"><span class="tooltiptext">jméno které bude vyžadováno pro přihlášení</span>Uživateské jméno: </td>
-      <td><input id="text" name="user_name" type="text" class="Input"></td>
+      <td><input id="text" name="user_name" type="text" class="Input" required></td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">Třída: </td>
+      <td><select name="class">
+            <option value="OA">OA</option>
+            <option value="OB">OB</option>
+            <option value="OC">OC</option>
+            <option value="4D">4D</option>
+          </select>
+      </td>
     </tr>
     <tr>
       <td align="right" valign="top">Jméno uživatele: </td>
-      <td><input id="text" name="name" type="text" class="Input"></td>
+      <td><input id="text" name="name" type="text" class="Input" required></td>
     </tr>
     <tr>
       <td align="right">Heslo: </td>
-      <td><input id="text" name="password" type="password" class="Input"></td>
+      <td><input id="text" name="password" type="password" class="Input" required></td>
     </tr>
     <tr>
       <td align="right">Potvrzení hesla: </td>
-      <td><input id="text" name="password2" type="password" class="Input"></td>
+      <td><input id="text" name="password2" type="password" class="Input" required></td>
     </tr>
     <tr>
       <td></td>

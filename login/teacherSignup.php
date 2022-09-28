@@ -5,11 +5,27 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   if($_POST['password'] == $_POST['password2']){
-    $user_name = $_POST['user_name'];
-    $name = $_POST['name'];
-    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+    $classes = ''
+    foreach ($_POST as $key => $value){
+      switch($key){
+        case 'user_name':
+          $user_name = $_POST['user_name'];
+          break;
+        case 'name':
+          $name = $_POST['name'];
+          break;
+        case 'password':
+          $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+          break;
+        case 'OA','OB','OC','4D':
+          $classes .= $key;
+          break;
+        case 'subjects':
+          $subjects = asort($_POST['subjects']);
+      }
+    }    
     if(!empty($user_name) && !empty($password)){
-      $query = "insert into users (user_name, name, password) values('$user_name', '$name', '$password')";
+      $query = "insert into users (user_name, name, password, user_power, subject_power_over, class_power_over) values('$user_name', '$name', '$password', 3, '$subjects', '$classes')";
       mysqli_query($con, $query);
 
       header("Location: login.php");
@@ -44,23 +60,23 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </tr>
         <tr>
           <td align="right" valign="top" class="tooltip"><span class="tooltiptext">jméno které bude vyžadováno pro přihlášení</span>Uživateské jméno: </td>
-          <td colspan="2"><input id="text" name="user_name" type="text" class="Input"></td>
+          <td colspan="2"><input id="text" name="user_name" type="text" class="Input" required></td>
         </tr>
         <tr>
           <td align="right" valign="top">Jméno uživatele: </td>
-          <td colspan="2"><input colspan="2" id="text" name="user_name" type="text" class="Input"></td>
+          <td colspan="2"><input colspan="2" id="text" name="user_name" type="text" class="Input" required></td>
         </tr>
         <tr>
           <td align="right">Heslo: </td>
-          <td colspan="2"><input id="text" name="password" type="password" class="Input"></td>
+          <td colspan="2"><input id="text" name="password" type="password" class="Input" required></td>
         </tr>
         <tr>
           <td align="right">Potvrzení hesla: </td>
-          <td colspan="2"><input id="text" name="password2" type="password" class="Input"></td>
+          <td colspan="2"><input id="text" name="password2" type="password" class="Input" required></td>
         </tr>
         <tr>
           <td class="tooltip"><span class="tooltiptext">zkratky předmětů rozdělte mezerou</span>Vyučované předměty: </td>
-          <td><input id="text" name="Subjects" type="password" class="Input"></td>
+          <td><input id="text" name="subjects" type="password" class="Input" required></td>
         </tr>
         <tr>
           <td>Vyučované třídy: </td>

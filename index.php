@@ -38,7 +38,7 @@ session_start();
   <div id="fullImg"></div>
   <div id="all">
     <div id="header">
-      <a href="operators/creator/creator.php"><button>click</button></a>
+      <a href="operators/creator/creator.php"><button>vytvořit</button></a>
     </div>
     <button id="selector" onclick="view(this)">zapnuto testování</button>
   </div>
@@ -58,19 +58,39 @@ session_start();
         <th style="width:20%;">třída</th>
       </tr>
       <?php
-        $storage = 'Storage';
-        $classes = array_diff(scandir($storage), array('..', '.'));
-        foreach($classes as $class){
-          $subjects = $storage.'/'.$class;
-          $subjects = array_diff(scandir($subjects), array('..', '.'));
+        if($user_data['validated']){
+          $storage = 'Storage';
+          $classes = array_diff(scandir($storage), array('..', '.'));
+          foreach($classes as $class){
+            $subjects = $storage.'/'.$class;
+            $subjects = array_diff(scandir($subjects), array('..', '.'));
+            foreach($subjects as $subject){
+              $names = $storage.'/'.$class.'/'.$subject;
+              $names = array_diff(scandir($names), array('..', '.'));
+              foreach($names as $name){
+  
+                $files = $storage.'/'.$class.'/'.$subject.'/'.$name;
+                $files = array_diff(scandir($files), array('..', '.'));
+                foreach ($files as $file){
+                ?>
+                <tr onclick="send(this,'<?=str_replace('.json','',$file)?>', '<?=$name?>', '<?=$subject?>', '<?=$class?>')">
+                  <td><?=str_replace('.json','',$file)?></td>
+                  <td><?=$name?></td>
+                  <td><?=$subject?></td>
+                  <td><?=$class?></td>
+                </tr>
+                <?php
+                }
+              }
+            }
+          }
+        }
+        else{
+          $subjects = array_diff(scandir("Storage/'$user_data['class']"), array('..', '.'));
           foreach($subjects as $subject){
-            $names = $storage.'/'.$class.'/'.$subject;
-            $names = array_diff(scandir($names), array('..', '.'));
-            foreach($names as $name){
-
-              $files = $storage.'/'.$class.'/'.$subject.'/'.$name;
-              $files = array_diff(scandir($files), array('..', '.'));
-              foreach ($files as $file){
+            $files = "Storage/'$user_data['class']'/'$subject'/'$user_data['name']'"
+            $files = array_diff(scandir($files), array('..', '.'));
+            foreach ($files as $file){
               ?>
               <tr onclick="send(this,'<?=str_replace('.json','',$file)?>', '<?=$name?>', '<?=$subject?>', '<?=$class?>')">
                 <td><?=str_replace('.json','',$file)?></td>
@@ -79,9 +99,11 @@ session_start();
                 <td><?=$class?></td>
               </tr>
               <?php
-              }
             }
           }
+          ?>          
+          <tr><td colspan='4'>nejste potvrzeným uživatelem. Vyčkejte napotvrzení Adminem. Ale přidávat otázky můžete</td></tr>
+          <?php
         }
       ?>
     </tbody>
