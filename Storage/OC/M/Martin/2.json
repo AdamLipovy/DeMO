@@ -1,0 +1,23 @@
+[
+    {
+        "selection": {
+            "header": [
+                "Hrozný ",
+                "Skvělý ",
+                "Eh"
+            ],
+            "rows": {
+                "Answer0": {
+                    "value": "Je to jméno?",
+                    "data": [
+                        "1",
+                        "1",
+                        "0"
+                    ]
+                }
+            }
+        },
+        "type": "text",
+        "Qvalue": "Adam"
+    }
+]

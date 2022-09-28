@@ -24,7 +24,7 @@
     <div>
 <?php
 foreach ($json as $question){
-  create_question($question);
+  create_question($question, True);
 }
 ?>
     </div>

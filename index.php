@@ -47,7 +47,7 @@
         <th style="width:20%;">předmět</th>
         <th style="width:20%;">třída</th>
       </tr>
-      <?
+      <?php
         $storage = 'Storage';
         $classes = array_diff(scandir($storage), array('..', '.'));
         foreach($classes as $class){
@@ -68,7 +68,7 @@
                 <td><?=$subject?></td>
                 <td><?=$class?></td>
               </tr>
-              <?
+              <?php
               }
             }
           }
