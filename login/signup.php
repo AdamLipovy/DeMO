@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   if($_POST['password'] == $_POST['password2']){
     $user_name = $_POST['user_name'];
     $name = $_POST['name'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
     if(!empty($user_name) && !empty($password)){
       $query = "insert into users (user_name, name, password) values('$user_name', '$name', '$password')";
       mysqli_query($con, $query);

@@ -2,6 +2,27 @@
 session_start();
   include("connection.php");
   include("functions.php");  
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  if($_POST['password'] == $_POST['password2']){
+    $user_name = $_POST['user_name'];
+    $name = $_POST['name'];
+    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+    if(!empty($user_name) && !empty($password)){
+      $query = "insert into users (user_name, name, password) values('$user_name', '$name', '$password')";
+      mysqli_query($con, $query);
+
+      header("Location: login.php");
+      die;
+    }
+    else{
+      echo "ERROR - zadány nesprávné hodnoty";
+    }
+  }
+  else{
+    echo 'ERROR - špatné heslo';
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +64,16 @@ session_start();
         </tr>
         <tr>
           <td>Vyučované třídy: </td>
-          <td><input id="text" name="Classes" type="password" class="Input"></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="OA" name="OA">
+<label for="OA">OA</label></td>
+          <td><input type="checkbox" id="OB" name="OB">
+<label for="OB">OB</label></td>
+          <td><input type="checkbox" id="OC" name="OC">
+<label for="OC">OC</label></td>
+          <td><input type="checkbox" id="4D" name="4D">
+<label for="4D">4D</label></td>
         </tr>
         <tr>
           <td></td>
