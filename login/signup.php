@@ -4,13 +4,13 @@ session_start();
   include("functions.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-  if($POST['password'] == $POST['password2']){
-    $user_name = $POST['user_name'];
-    $name = $POST['name'];
-    $password = $POST['password'];
-    if(!empty($user_name) $$ !empty($password)){
+  if($_POST['password'] == $_POST['password2']){
+    $user_name = $_POST['user_name'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    if(!empty($user_name) && !empty($password)){
       $query = "insert into users (user_name, name, password) values('$user_name', '$name', '$password')";
-      mysqli_query($query);
+      mysqli_query($con, $query);
 
       header("Location: login.php");
       die;
@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     else{
       echo "ERROR - zadány nesprávné hodnoty";
     }
+  }
   else{
     echo 'ERROR - špatné heslo';
   }
@@ -55,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     </tr>
     <tr>
       <td align="right">Potvrzení hesla: </td>
-      <td><input id="text" name="password" type="password" class="Input"></td>
+      <td><input id="text" name="password2" type="password" class="Input"></td>
     </tr>
     <tr>
       <td></td>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+  $user_data = check_login($con);
+  die;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
