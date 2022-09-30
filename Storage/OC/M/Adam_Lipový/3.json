@@ -1,0 +1,14 @@
+[
+    {
+        "radio": [
+            {
+                "Answer0": {
+                    "value": "+ěš",
+                    "triggered": true
+                }
+            }
+        ],
+        "type": "text",
+        "Qvalue": "asd"
+    }
+]

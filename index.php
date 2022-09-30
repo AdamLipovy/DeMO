@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-  include("/login/connection.php");
-  include("/login/functions.php");
+  include("login/connection.php");
+  include("login/functions.php");
 
   $user_data = check_login($con);
 
@@ -75,7 +75,7 @@ session_start();
                 ?>
                 <tr onclick="send(this,'<?=str_replace('.json','',$file)?>', '<?=$name?>', '<?=$subject?>', '<?=$class?>')">
                   <td><?=str_replace('.json','',$file)?></td>
-                  <td><?=$name?></td>
+                  <td><?=str_replace("_"," ",$name)?></td>
                   <td><?=$subject?></td>
                   <td><?=$class?></td>
                 </tr>
@@ -86,24 +86,32 @@ session_start();
           }
         }
         else{
-          $subjects = array_diff(scandir("Storage/'$user_data['class']"), array('..', '.'));
+          $name = str_replace(" ","_",$user_data['name']);
+          $Question = False;
+          
+          $subjects = array_diff(scandir("Storage/".$user_data['class']), array('..', '.'));
           foreach($subjects as $subject){
-            $files = "Storage/'$user_data['class']'/'$subject'/'$user_data['name']'"
-            $files = array_diff(scandir($files), array('..', '.'));
-            foreach ($files as $file){
+            $files = "Storage/".$user_data['class']."/".$subject."/".$name;
+            if (file_exists($files)) {
+              $Question = True;
+              $files = array_diff(scandir($files), array('..', '.'));
+              foreach ($files as $file){
               ?>
               <tr onclick="send(this,'<?=str_replace('.json','',$file)?>', '<?=$name?>', '<?=$subject?>', '<?=$class?>')">
                 <td><?=str_replace('.json','',$file)?></td>
-                <td><?=$name?></td>
+                <td><?=str_replace("_"," ",$name)?></td>
                 <td><?=$subject?></td>
                 <td><?=$class?></td>
               </tr>
               <?php
+              }
             }
           }
-          ?>          
-          <tr><td colspan='4'>nejste potvrzeným uživatelem. Vyčkejte napotvrzení Adminem. Ale přidávat otázky můžete</td></tr>
-          <?php
+          if(!$Question){
+              ?>
+              <td colspan="4">Nejste ověřeným uživatelem ani jste nevytvořil žádnou otázku.</td>
+              <?php
+            }
         }
       ?>
     </tbody>

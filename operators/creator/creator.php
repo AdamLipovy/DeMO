@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+  include("../../login/connection.php");
+  include("../../login/functions.php");
+
+  $user_data = check_login($con);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +22,7 @@
   <form action="saver.php" method="post" id="form" name="form" enctype="multipart/form-data">
     <div>
       <label for="Qnumber">číslo odpovědi:</label>
+      <?php require("../support/menues/subjects.html"); ?>
       <input name="Qnumber" id="answer" type="number" min="1"max="50" value="1">
       <input type="submit">
     </div>

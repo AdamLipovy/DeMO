@@ -1,5 +1,13 @@
 <?php
+session_start();
+
+  include("../../login/connection.php");
+  include("../../login/functions.php");
+
+  $user_data = check_login($con);
+
 $Qnumber = $_POST['Qnumber'];
+$Qsubject = $_POST['subject'];
 $i = 0;
 
 $questions = [];
@@ -109,11 +117,18 @@ $questions[count($questions)] = $question;
 
 unset($question);
 
-if (!file_exists('../../Storage/OC/M/Martin')) {
-  mkdir('../../Storage/OC/M/Martin', 0777, true);
-  
+$user_data['name'] = 'Adam Lipový';
+$user_data['class'] = 'OC';
+
+$name = str_replace(" ","_",$user_data['name']);
+
+$path = $_SERVER['DOCUMENT_ROOT']."/Storage/".$user_data['class']."/".$Qsubject."/".$name;
+
+
+if (!file_exists($path)) {
+  mkdir($path, 0777, true);
 }
-file_put_contents('../../Storage/OC/M/Martin/'.$Qnumber.'.json', json_encode($questions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+file_put_contents($path."/".$Qnumber.'.json', json_encode($questions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 header("location:index.php");
 ?>
