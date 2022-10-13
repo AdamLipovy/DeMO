@@ -44,6 +44,7 @@
         $labels.forEach(function(item){item.setAttribute("name","selection label" + y); y++;});
         break;
     }
+    change.querySelector('tr#explanation input#explanation.Answer').setAttribute("name",'Explanation' + z);
     var thead = change.querySelector(Aposition);
     change.querySelector("tr#typer input").name += z;
     var $elementPath = "";

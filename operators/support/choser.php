@@ -3,6 +3,7 @@
   function create_question($question, $setValue){
     $tHeadIndex = $tBodyIndex = 0;
     $constructor = $Qtype = $Qvalue = '';
+    if($setValue == 'test'){}
     foreach($question as $key => $value){
       switch ($key){
         case "type":
@@ -56,5 +57,8 @@
       }
     }
     echo $constructor;
+  }
+  function check($question, $setValue){
+    
   }
 ?>

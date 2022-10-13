@@ -19,6 +19,8 @@ $rowValue = '';
 foreach ($_POST as $key => $value) {
   echo $key.'-'.$value.'<br>';
   switch (true){
+    case (strpos($key, 'Explanation') !== false):
+      $question['explanation'] = $value;
     case (strpos($key, 'textQ') !== false):
       $question['type'] = 'text';
       $question['Qvalue'] = $value;
@@ -130,5 +132,5 @@ if (!file_exists($path)) {
 }
 file_put_contents($path."/".$Qnumber.'.json', json_encode($questions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-header("location:index.php");
+header("location:../../index.php");
 ?>

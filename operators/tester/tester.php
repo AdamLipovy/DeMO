@@ -24,9 +24,10 @@
     <div>
 <?php
 foreach ($json as $question){
-  create_question($question, True);
+  create_question($question, 'test');
 }
 ?>
+    <input type="submit">
     </div>
   </form>
 <?php

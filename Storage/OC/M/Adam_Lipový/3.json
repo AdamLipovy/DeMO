@@ -2,13 +2,26 @@
     {
         "radio": [
             {
-                "Answer0": {
-                    "value": "+ěš",
+                "Answer6": {
+                    "value": "2dda",
+                    "triggered": false
+                }
+            },
+            {
+                "Answer7": {
+                    "value": "ds",
                     "triggered": true
+                }
+            },
+            {
+                "Answer8": {
+                    "value": "jdsa",
+                    "triggered": false
                 }
             }
         ],
         "type": "text",
-        "Qvalue": "asd"
+        "Qvalue": "Kamil",
+        "explanation": "Kamil"
     }
 ]
