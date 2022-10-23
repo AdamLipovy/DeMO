@@ -21,6 +21,7 @@ foreach ($_POST as $key => $value) {
   switch (true){
     case (strpos($key, 'Explanation') !== false):
       $question['explanation'] = $value;
+      break;
     case (strpos($key, 'textQ') !== false):
       $question['type'] = 'text';
       $question['Qvalue'] = $value;
@@ -31,7 +32,7 @@ foreach ($_POST as $key => $value) {
       break;
     case (strpos($key, 'video') !== false):
       $question['type'] = 'video';
-      $question['Qvalue'] = $value;
+      $question['Qvalue'] = str_replace("watch?v=", "embed/", $value);
       break;
     case (strpos($key, 'section') !== false):
       if ($question != array()){
@@ -94,7 +95,7 @@ foreach ($_POST as $key => $value) {
         case (strpos($key, 'Answer') !== false):
           echo $nextQuestion."<br>";
           if ($nextQuestion == 'radio'){
-            $question[$nextQuestion][count($question[$nextQuestion])] = [$key => ['value' => $value, 'triggered' => $nextSelection]];
+            $question[$nextQuestion][count($question[$nextQuestion])] = ['value' => $value, 'triggered' => $nextSelection];
             $nextSelection = False;
             }
           if ($nextQuestion == 'selection'){

@@ -14,7 +14,7 @@ session_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css" media="screen">
+  <link rel="stylesheet" href="operators/support/style.css" media="screen">
   <script src="index.js"></script>
   <title>Document</title>
   <script>
@@ -27,7 +27,7 @@ session_start();
     }
     function view(el){
       var form = document.querySelector("form.hiddenSender");
-      if(el.innerHTML == "zapnuto testování"){el.innerHTML = "zapnuto zobrazování"; form.action = "operators/reader/reader.php"}
+      if(el.innerHTML == "zapnuto testování"){el.innerHTML = "zapnuto zobrazování"; form.action = "operators/viewer/viewer.php"}
       else{el.innerHTML = "zapnuto testování"; form.action = "operators/tester/tester.php"}
       
     }

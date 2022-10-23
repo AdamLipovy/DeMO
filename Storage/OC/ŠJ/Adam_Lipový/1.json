@@ -1,0 +1,54 @@
+[
+    {
+        "radio": [
+            {                
+                "value": "A1",
+                "triggered": true
+            },
+            {
+                "value": "A2",
+                "triggered": false
+            },
+            {
+                "value": "Ano",
+                "triggered": false
+            }
+        ],
+        "type": "text",
+        "Qvalue": "Qtext",
+        "explanation": "Expl1dasjnkjvnzkjcvnkzjnvujznvjzhbcjzbnuqanij aoijdiadjiaoj dadasjnjandas auhjadkasjoi"
+    },
+    {
+        "text": {
+            "value": "A3",
+            "data": []            
+        },
+        "type": "photo",
+        "Qvalue": "https:\/\/icatcare.org\/app\/uploads\/2018\/07\/Thinking-of-getting-a-cat.png",
+        "explanation": "Expl2"
+    },
+    {
+        "selection": {
+            "header": [
+                "A4",
+                "A5"
+            ],
+            "rows": {
+                "Answer2": {
+                    "value": "A6",
+                    "data": [
+                        "1",
+                        "0"
+                    ]
+                }
+            }
+        },
+        "type": "video",
+        "Qvalue": "https:\/\/www.youtube.com\/embed\/hmjhALueDjs",
+        "explanation": "Expl3"
+    },
+    {
+        "type": "section",
+        "Qvalue": "Section1"
+    }
+]
